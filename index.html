@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>
+      VIP Lifetime Pass - Grow Study
+    </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+      @import url(&amp;#39;https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;amp;display=swap&amp;#39;);
+  
+  /* Reset &amp;amp; Force Fullscreen */
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important; 
+    background-color: #030407 !important;
+  }
+  
+  #premium-app-wrapper {
+    position: fixed !important;
+    top: 0 !important; 
+    left: 0 !important; 
+    right: 0 !important; 
+    bottom: 0 !important;
+    background-color: #030407 !important;
+    background-image: 
+      radial-gradient(circle at 15% 10%, rgba(245, 158, 11, 0.15) 0%, transparent 45%),
+      radial-gradient(circle at 85% 90%, rgba(16, 185, 129, 0.1) 0%, transparent 45%),
+      radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 60%) !important;
+    z-index: 9999999 !important;
+    overflow-y: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 24px 16px 140px 16px !important;
+    color: #ffffff !important;
+    font-family: &amp;#39;Plus Jakarta Sans&amp;#39;, sans-serif !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  
+  #premium-app-wrapper * {
+    box-sizing: border-box;
+    font-family: &amp;#39;Plus Jakarta Sans&amp;#39;, sans-serif;
+  }
+  
+  .premium-container {
+    max-width: 460px;
+    width: 100%;
+    animation: scaleUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes scaleUp {
+    from { opacity: 0; transform: scale(0.96) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  
+  /* Header Crown */
+  .header-icon-container {
+    position: relative;
+    width: 84px;
+    height: 84px;
+    margin: 0 auto 16px auto;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(245, 158, 11, 0.03));
+    border: 2px solid rgba(245, 158, 11, 0.5);
+    border-radius: 50%;
+    box-shadow: 0 0 35px rgba(245, 158, 11, 0.3);
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .header-icon {
+    font-size: 38px;
+    color: #f59e0b;
+    filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.6));
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  
+  .premium-container h1 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #ffffff 30%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0 0 4px 0;
+  }
+  
+  .subtitle {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #94a3b8;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  /* Urgency Timer Banner */
+  .urgency-banner {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(245, 158, 11, 0.15));
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    border-radius: 16px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(239, 68, 68, 0.15);
+  }
+
+  .urgency-text {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #fca5a5;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .countdown {
+    font-size: 12px;
+    font-weight: 800;
+    color: #f59e0b;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 4px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+  }
+  
+  /* Animated Glowing Price Box */
+  .price-box {
+    position: relative;
+    border-radius: 24px;
+    padding: 2px; /* Border thickness */
+    background: linear-gradient(60deg, #f59e0b, #10b981, #3b82f6, #f59e0b);
+    background-size: 300% 300%;
+    animation: borderGlow 6s ease infinite;
+    margin-bottom: 22px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+  }
+
+  @keyframes borderGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .price-inner {
+    background: #0b0f17;
+    border-radius: 22px;
+    padding: 22px;
+    text-align: center;
+  }
+  
+  .price-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .original-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #64748b;
+    text-decoration: line-through;
+  }
+
+  .price {
+    font-size: 48px;
+    font-weight: 900;
+    color: #f59e0b;
+    line-height: 1;
+    letter-spacing: -1px;
+    filter: drop-shadow(0 2px 10px rgba(245, 158, 11, 0.4));
+  }
+  
+  .validity-tag {
+    font-size: 12.5px;
+    color: #cbd5e1;
+    margin-top: 10px;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  
+  /* Features Card */
+  .features {
+    background: rgba(13, 17, 26, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 22px;
+    padding: 20px;
+    margin-bottom: 18px;
+    backdrop-filter: blur(12px);
+  }
+  
+  .features h3 {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin: 0 0 14px 0;
+    color: #94a3b8;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  .f-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 13px;
+    font-size: 13px;
+    color: #e2e8f0;
+    font-weight: 500;
+  }
+
+  .f-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .f-item i {
+    color: #10b981;
+    font-size: 13px;
+    background: rgba(16, 185, 129, 0.15);
+    padding: 7px;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+
+  /* FAQ Accordion */
+  .faq-box {
+    background: rgba(13, 17, 26, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 22px;
+    padding: 18px;
+    margin-bottom: 18px;
+  }
+
+  .faq-box h3 {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin: 0 0 12px 0;
+    color: #94a3b8;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .faq-item {
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 8px;
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .faq-q {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #f1f5f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .faq-q i {
+    font-size: 11px;
+    color: #f59e0b;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-ans {
+    font-size: 11.5px;
+    color: #94a3b8;
+    margin-top: 5px;
+    line-height: 1.5;
+    display: none;
+  }
+
+  .faq-item.active .faq-ans {
+    display: block;
+  }
+
+  .faq-item.active .faq-q i {
+    transform: rotate(180deg);
+  }
+  
+  .info-text {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 11px;
+    line-height: 1.6;
+    padding: 0 6px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  
+  .secure-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 11.5px;
+    color: #10b981;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  /* Live Buyer Notification Popup */
+  #buyer-popup {
+    position: fixed;
+    bottom: 95px;
+    left: 16px;
+    background: rgba(14, 18, 28, 0.96);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    backdrop-filter: blur(12px);
+    padding: 10px 14px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 9999998;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s;
+    transform: translateY(130%);
+    opacity: 0;
+    max-width: 310px;
+  }
+
+  #buyer-popup.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .buyer-text {
+    font-size: 11px;
+    color: #cbd5e1;
+    line-height: 1.3;
+  }
+
+  .buyer-text strong {
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .buyer-time {
+    font-size: 9.5px;
+    color: #10b981;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  /* STICKY BOTTOM BUTTON */
+  .sticky-bottom {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    padding: 14px 16px 20px 16px !important;
+    background: linear-gradient(to top, #030407 75%, rgba(3, 4, 7, 0.85) 90%, transparent) !important;
+    display: flex !important;
+    justify-content: center !important;
+    z-index: 99999999 !important;
+  }
+  
+  .buy-btn {
+    background: linear-gradient(135deg, #25D366, #1db954) !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    width: 100% !important;
+    max-width: 460px !important;
+    padding: 16px !important;
+    border-radius: 16px !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.5px !important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.45) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+  
+  .buy-btn:active {
+    transform: scale(0.97) !important;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25) !important;
+  }
+    </style>
+  </head>
+  <body>
+    <div id="premium-app-wrapper">
+      <div class="premium-container">
+        <!-- Crown Icon -->
+        <div class="header-icon-container">
+          <i class="fa-solid fa-crown header-icon"></i>
+        </div>
+        <h1>
+          VIP LIFETIME
+        </h1>
+        <div class="subtitle">
+          Grow Study Elite Pass
+        </div>
+        <!-- Urgency Countdown Timer -->
+        <div class="urgency-banner">
+          <div class="urgency-text">
+            <i class="fa-solid fa-fire" style="color: #ef4444; font-size: 14px;"></i>
+            80% Discount Ending Soon!
+          </div>
+          <div class="countdown" id="timer">
+            14:59
+          </div>
+        </div>
+        <!-- Animated Glowing Price Box -->
+        <div class="price-box">
+          <div class="price-inner">
+            <div class="price-row">
+              <span class="original-price">              ₹499
+</span>
+              <span class="price">              ₹99
+</span>
+            </div>
+            <div class="validity-tag">
+              <i class="fa-solid fa-shield-check" style="color: #f59e0b;"></i>
+              One-Time Fee • Lifetime Access
+            </div>
+          </div>
+        </div>
+        <!-- Features -->
+        <div class="features">
+          <h3>
+            VIP Perks &amp; Benefits
+          </h3>
+          <div class="f-item">
+            <i class="fa-solid fa-check"></i>
+            <span>            Direct lifetime access to one locked institutes &amp; video servers
+</span>
+          </div>
+          <div class="f-item">
+            <i class="fa-solid fa-check"></i>
+            <span>            No annoying ads &amp; zero daily 24-hour key generation wait
+</span>
+          </div>
+          <div class="f-item">
+            <i class="fa-solid fa-check"></i>
+            <span>            Instant automated server approval &amp; high-speed PDF reading
+</span>
+          </div>
+          <div class="f-item">
+            <i class="fa-solid fa-check"></i>
+            <span>            100% Secure database sync across your personal devices
+</span>
+          </div>
+          <div class="f-item">
+            <i class="fa-solid fa-check"></i>
+            <span>            Direct WhatsApp priority support line with the developer
+</span>
+          </div>
+        </div>
+        <!-- FAQ Accordion -->
+        <div class="faq-box">
+          <h3>
+            Frequently Asked Questions
+          </h3>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">
+              <span>              How do I get my key after payment?
+</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="faq-ans">
+              Clicking the WhatsApp button connects you directly with the admin. Send screenshot, and your permanent key is issued within 60 seconds!
+            </div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">
+              <span>              Is there any hidden monthly subscription?
+</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="faq-ans">
+              No subscriptions! This is a single, lifetime-valid payment of ₹99. Enjoy unlimited access forever.
+            </div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">
+              <span>              Can I use this on phone and laptop?
+</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div class="faq-ans">
+              Yes, your VIP lifetime pass works flawlessly on any Android smartphone, tablet, or web browser.
+            </div>
+          </div>
+        </div>
+        <div class="info-text">
+          Tap the button below to message our team instantly on WhatsApp. Secure QR/UPI details will be provided right there.
+        </div>
+        <div class="secure-badge">
+          <i class="fa-solid fa-shield-halved"></i>
+          100% Trusted by Over 5,000+ Students
+        </div>
+      </div>
+      <!-- STICKY BOTTOM BUTTON -->
+      <div class="sticky-bottom">
+        <a class="buy-btn" href="https://wa.me/918932897854?text=Hi%20Grow%20study%20team,%20mujhe%20Grow%20Study%20ka%20Lifetime%20Premium%20Key%20buy%20karna%20hai%20(%E2%82%B999)." target="_blank">        <i class="fa-brands fa-whatsapp" style="font-size: 26px;"></i>
+        BUY PREMIUM KEY (₹99)
+</a>
+      </div>
+    </div>
+    <!-- Live Buyer Notification Popup -->
+    <div id="buyer-popup">
+      <div style="font-size: 24px;">
+        🎉
+      </div>
+      <div>
+        <div class="buyer-text">
+          <strong id="buyer-name">          Rohit Sharma
+</strong>
+          just secured VIP Key!
+        </div>
+        <div class="buyer-time">
+          <i class="fa-solid fa-clock"></i>
+          <span id="buyer-time-ago">          1 minute ago
+</span>
+        </div>
+      </div>
+    </div>
+    <script>
+      // FAQ Toggle Logic
+  function toggleFaq(element) {
+    const isOpen = element.classList.contains(&amp;#39;active&amp;#39;);
+    document.querySelectorAll(&amp;#39;.faq-item&amp;#39;).forEach(item =&amp;gt; item.classList.remove(&amp;#39;active&amp;#39;));
+    if (!isOpen) {
+      element.classList.add(&amp;#39;active&amp;#39;);
+    }
+  }
+
+  // Countdown Timer Simulation
+  let duration = 15 * 60;
+  const timerEl = document.getElementById(&amp;#39;timer&amp;#39;);
+  setInterval(() =&amp;gt; {
+    let minutes = Math.floor(duration / 60);
+    let seconds = duration % 60;
+    timerEl.textContent = `${minutes &amp;lt; 10 ? &amp;#39;0&amp;#39; : &amp;#39;&amp;#39;}${minutes}:${seconds &amp;lt; 10 ? &amp;#39;0&amp;#39; : &amp;#39;&amp;#39;}${seconds}`;
+    if (duration &amp;gt; 0) duration--;
+  }, 1000);
+
+  // Live Buyer Notification Rotator
+  const buyers = [
+    { name: &amp;#34;Rohit Sharma (Mumbai)&amp;#34;, time: &amp;#34;1 min ago&amp;#34; },
+    { name: &amp;#34;Ankit Gupta (Delhi)&amp;#34;, time: &amp;#34;Just now&amp;#34; },
+    { name: &amp;#34;Neha Kumari (Patna)&amp;#34;, time: &amp;#34;3 mins ago&amp;#34; },
+    { name: &amp;#34;Deepak Saini (Jaipur)&amp;#34;, time: &amp;#34;2 mins ago&amp;#34; },
+    { name: &amp;#34;Pooja Verma (Lucknow)&amp;#34;, time: &amp;#34;4 mins ago&amp;#34; }
+  ];
+
+  let buyerIndex = 0;
+  function showBuyerPopup() {
+    const popup = document.getElementById(&amp;#39;buyer-popup&amp;#39;);
+    document.getElementById(&amp;#39;buyer-name&amp;#39;).textContent = buyers[buyerIndex].name;
+    document.getElementById(&amp;#39;buyer-time-ago&amp;#39;).textContent = buyers[buyerIndex].time;
+
+    popup.classList.add(&amp;#39;show&amp;#39;);
+    setTimeout(() =&amp;gt; popup.classList.remove(&amp;#39;show&amp;#39;), 4200);
+    buyerIndex = (buyerIndex + 1) % buyers.length;
+  }
+
+  setTimeout(() =&amp;gt; {
+    showBuyerPopup();
+    setInterval(showBuyerPopup, 11000);
+  }, 3000);
+    </script>
+  </body>
+</html>
